@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,103 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DemoTrain2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="21p-z4-vGs">
+                                <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Jh8-hB-bWc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QYh-yA-xjc"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9od-1I-SiC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh sách vay nợ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDl-4S-sAQ">
+                                        <rect key="frame" x="116" y="12" width="143.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25690680739999999" green="0.34727674720000001" blue="0.57257634400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="fDl-4S-sAQ" firstAttribute="centerX" secondItem="9od-1I-SiC" secondAttribute="centerX" id="4c7-ET-26a"/>
+                                    <constraint firstItem="fDl-4S-sAQ" firstAttribute="top" secondItem="9od-1I-SiC" secondAttribute="top" constant="12" id="9h1-jB-2F5"/>
+                                    <constraint firstItem="fDl-4S-sAQ" firstAttribute="centerY" secondItem="9od-1I-SiC" secondAttribute="centerY" id="aG5-C7-Dej"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vI-vn-zcM">
+                                <rect key="frame" x="10" y="54.5" width="93" height="30"/>
+                                <state key="normal" title="Đang cho vay"/>
+                                <connections>
+                                    <action selector="chovayOnclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qx6-gJ-veE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-F2-7Q6">
+                                <rect key="frame" x="120" y="54.5" width="93" height="30"/>
+                                <state key="normal" title="Đang vay"/>
+                                <connections>
+                                    <action selector="chovayOnclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UHC-Mw-hMw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DS rút gọn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-44-6Ys">
+                                <rect key="frame" x="224" y="59" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7h-8K-CCa">
+                                <rect key="frame" x="316" y="54" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchOnclick:" destination="BYZ-38-t0r" eventType="valueChanged" id="eJu-fv-H5s"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-Tf-bP4">
+                                <rect key="frame" x="111" y="54.5" width="1" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="ZA0-BQ-vq1"/>
+                                    <constraint firstAttribute="height" constant="30" id="jZ4-CX-N3g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="21p-z4-vGs" firstAttribute="top" secondItem="R7h-8K-CCa" secondAttribute="bottom" constant="20" id="27z-nP-L8X"/>
+                            <constraint firstItem="9od-1I-SiC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6cp-PK-hhk"/>
+                            <constraint firstItem="9od-1I-SiC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AL6-uU-zUw"/>
+                            <constraint firstItem="21p-z4-vGs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ArY-nk-eOq"/>
+                            <constraint firstItem="3vI-vn-zcM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HXc-fg-U5c"/>
+                            <constraint firstItem="2lg-44-6Ys" firstAttribute="centerY" secondItem="R7h-8K-CCa" secondAttribute="centerY" id="LIM-tP-Vsm"/>
+                            <constraint firstItem="R7h-8K-CCa" firstAttribute="leading" secondItem="2lg-44-6Ys" secondAttribute="trailing" constant="10" id="One-TN-5FT"/>
+                            <constraint firstItem="c9i-F2-7Q6" firstAttribute="centerY" secondItem="2lg-44-6Ys" secondAttribute="centerY" id="TYg-R2-Jso"/>
+                            <constraint firstItem="3vI-vn-zcM" firstAttribute="top" secondItem="9od-1I-SiC" secondAttribute="bottom" constant="10" id="Tit-fX-9HZ"/>
+                            <constraint firstItem="9od-1I-SiC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X4J-bZ-ML7"/>
+                            <constraint firstItem="c9i-F2-7Q6" firstAttribute="leading" secondItem="rLc-Tf-bP4" secondAttribute="trailing" constant="8" id="Zgy-Vs-27j"/>
+                            <constraint firstItem="3vI-vn-zcM" firstAttribute="centerY" secondItem="c9i-F2-7Q6" secondAttribute="centerY" id="Zrq-Ux-qCy"/>
+                            <constraint firstItem="21p-z4-vGs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Zs6-h8-DPL"/>
+                            <constraint firstItem="rLc-Tf-bP4" firstAttribute="top" secondItem="9od-1I-SiC" secondAttribute="bottom" constant="10" id="m8A-gx-pFV"/>
+                            <constraint firstItem="3vI-vn-zcM" firstAttribute="width" secondItem="c9i-F2-7Q6" secondAttribute="width" id="mA8-yR-9fB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R7h-8K-CCa" secondAttribute="trailing" constant="10" id="sZD-et-06Q"/>
+                            <constraint firstItem="rLc-Tf-bP4" firstAttribute="leading" secondItem="3vI-vn-zcM" secondAttribute="trailing" constant="8" id="xaD-vv-VRH"/>
+                            <constraint firstItem="21p-z4-vGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ybG-E0-h5s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chovayBtn" destination="3vI-vn-zcM" id="9N9-5N-dzS"/>
+                        <outlet property="infoTbv" destination="21p-z4-vGs" id="nRf-Tz-xQ0"/>
+                        <outlet property="vayBtn" destination="c9i-F2-7Q6" id="daE-CK-atF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>
